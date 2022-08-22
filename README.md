@@ -7,3 +7,5 @@ Cryptocurrency data tracker app built with React.js featuring API data to render
 - Chart.js to render detailed price movement across the entire month.
 - Detailed search and filtering of any cryptocurrency via react hooks
 - Live and constantly updated market data.
+
+Live project: https://rt-crypto-tracker-73b616.netlify.app/
