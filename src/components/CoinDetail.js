@@ -19,7 +19,13 @@ function CoinDetail(props) {
     const url = ('https://api.coingecko.com/api/v3/coins/' + selectedCoin);
 
     useEffect(() => {
-        axios.get(url)
+        axios.get(
+            url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
+            }
+        })
             .then(res => setCurrentCoin([res.data]));
     }, []);
 

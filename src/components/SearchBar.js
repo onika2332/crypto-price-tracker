@@ -28,7 +28,13 @@ function SearchBar() {
     useEffect(() => {
         if (activateCall.goToDetail === true) {
             const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${activateCall.selectedCoin}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
-            axios.get(url).then((res) => {
+            axios.get(
+                url, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'http://localhost:3000',
+                }
+            }).then((res) => {
                 navigate("/coinInfo", {
                     state: {
                         id: res.data[0].id,

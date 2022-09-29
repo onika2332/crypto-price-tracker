@@ -20,7 +20,13 @@ function MainTable() {
 
     useEffect(() => {
         setUrl(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=25&page=${count}&sparkline=false`)
-        axios.get(Url)
+        axios.get(
+            Url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
+            }
+        })
             .then(res => setCurrencies(res.data));
     }, [count, Url]);
 

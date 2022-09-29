@@ -14,7 +14,13 @@ function PriceChart(props) {
     const url = (`https://api.coingecko.com/api/v3/coins/${props.id}/market_chart?vs_currency=usd&days=30&interval=hourly`);
 
     useEffect(() => {
-        axios.get(url)
+        axios.get(
+            url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
+            }
+        })
             .then(res => setPriceData(res.data));
     }, []);
 
